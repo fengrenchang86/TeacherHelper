@@ -1,0 +1,69 @@
+<div>
+	<form data-dojo-type="dijit/form/Form" >
+		<div class="field">
+			<label for="username">${i18n.username}</label>
+			<input
+				data-dojo-type="dijit/form/ValidationTextBox" placeholder="${i18n.placeholder.username}"
+				data-dojo-attach-point="_username"
+				required="true"
+				regExp="[a-zA-Z]\w{5,20}"
+				invalidMessage="${i18n.errorMsg.username}"
+				id="username" name="username" />
+		</div>
+		
+		<div class="field">
+			<label for="password">${i18n.password}</label>
+			<input
+				type="password"
+				data-dojo-type="dijit/form/ValidationTextBox" placeholder="${i18n.placeholder.password}"
+				required="true"
+				id="password" name="password" />
+		</div>
+		
+		<div class="field">
+			<label for="confirmpassword">${i18n.confirmpassword}</label>
+			<input
+				type="password"
+				data-dojo-type="dijit/form/ValidationTextBox" placeholder="${i18n.placeholder.confirmpassword}"
+				data-dojo-attach-point="_password"
+				required="true"
+				validator="return　this.getValue()　==　dijit.byId('password').getValue()"
+				invalidMessage="${i18n.errorMsg.confirmpassword}"
+				id="confirmpassword" name="confirmpassword" />
+		</div>
+	
+		<div class="field">
+			<label for="nickname">${i18n.nickname}</label>
+			<input
+				data-dojo-type="dijit/form/TextBox" placeholder="${i18n.placeholder.nickname}"
+				data-dojo-attach-point="_nickname"
+				id="nickname" name="nickname" />
+		</div>
+		
+		<div class="field">
+			<label for="email">${i18n.email}</label>
+			<input
+				data-dojo-type="dijit/form/ValidationTextBox" placeholder="${i18n.placeholder.email}"
+				data-dojo-attach-point="_email"
+				regExp="(\w+@\w+\.\w+)(\.{0,1}\w*)(\.{0,1}\w*)"
+				invalidMessage="${i18n.errorMsg.email}"
+				id="email" name="email" />
+		</div>
+	
+		<div class="field">
+			<label for="type">${i18n.type}</label> 
+			<select name="type" id="type"
+				data-dojo-type="dijit/form/Select"
+				data-dojo-attach-point="_type" 
+				style="width: 200px;">
+				<option value="TC">${i18n.teacher}</option>
+				<option value="ST">${i18n.student}</option>
+			</select>
+		</div>
+	
+		<div class="field" data-dojo-attach-point="btnContainer">
+			
+		</div>
+	</form>
+</div>
+

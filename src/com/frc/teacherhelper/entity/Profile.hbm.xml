@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-2-21 18:40:00 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.frc.teacherhelper.entity.Profile" table="profile" catalog="teacherdb">
+        <id name="idprofile" type="java.lang.Integer">
+            <column name="idprofile" />
+            <generator class="identity" />
+        </id>
+        <property name="username" type="string">
+            <column name="username" length="45" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="45" not-null="true" />
+        </property>
+        <property name="registerDate" type="timestamp">
+            <column name="register_date" length="0" />
+        </property>
+        <property name="status" type="int">
+            <column name="status" not-null="true" />
+        </property>
+        <property name="mailAddress" type="string">
+            <column name="mail_address" length="200" />
+        </property>
+        <property name="nickname" type="string">
+            <column name="nickname" length="45" />
+        </property>
+        <property name="type" type="int">
+            <column name="type" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

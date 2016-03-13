@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       		http://www.springframework.org/schema/beans/spring-beans.xsd
+           	http://www.springframework.org/schema/aop 
+    		http://www.springframework.org/schema/aop/spring-aop.xsd
+           	http://www.springframework.org/schema/tx 
+           	http://www.springframework.org/schema/tx/spring-tx.xsd
+          	http://www.springframework.org/schema/context
+          	http://www.springframework.org/schema/context/spring-context.xsd"
+	default-lazy-init="false">
+	<bean id="dataSource_teacherdb" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="com.mysql.jdbc.Driver" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/teacherdb" />
+		<property name="user" value="root" />
+		<property name="password" value="acmicpc" />
+	</bean>
+	
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource_teacherdb" />
+		 
+		 <!-- 
+		<property name="hibernateProperties">
+			<value>
+				hibernate.dialect=org.hibernate.dialect.MySQLInnoDBDialect
+				hibernate.query.substitutions=true 1, false 0
+				hibernate.jdbc.batch_size=20
+				hibernate.format_sql=true
+			</value>
+		</property>
+		 -->
+		<property name="configLocation" value="classpath:hibernate.cfg.xml">
+		</property>
+		
+		<property name="packagesToScan">
+			<list>
+				<value>com.frc.teacherhelper.entity</value>
+			</list>
+		</property>
+	</bean>
+	
+	
+	<!-- 使用annotation 自动注册bean -->
+	<context:component-scan base-package="com.frc.teacherhelper.entity" />
+	<context:component-scan base-package="com.frc.teacherhelper.controller" />
+	<context:component-scan base-package="com.frc.teacherhelper.service" />
+	
+</beans>
