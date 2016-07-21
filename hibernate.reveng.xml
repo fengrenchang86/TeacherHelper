@@ -3,4 +3,9 @@
 
 <hibernate-reverse-engineering>
   <table-filter match-catalog="teacherdb" match-name="profile"/>
+  <table-filter match-catalog="teacherdb" match-name="problem"/>
+  <table-filter match-catalog="teacherdb" match-name="user"/>
+  <table-filter match-catalog="teacherdb" match-name="role"/>
+  <table-filter match-catalog="teacherdb" match-name="testitem"/>
+  <table-filter match-catalog="teacherdb" match-name="subject"/>
 </hibernate-reverse-engineering>

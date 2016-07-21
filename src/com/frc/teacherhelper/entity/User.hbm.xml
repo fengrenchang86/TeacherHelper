@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-7-5 23:47:38 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.frc.teacherhelper.entity.User" table="user" catalog="teacherdb">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="username" type="string">
+            <column name="username" length="50" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="50" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status">
+                <comment>0 - ????????? 1 - ?????&#162;&#227;?????? 2 - &#168;&#166;&#161;&#177;????</comment>
+            </column>
+        </property>
+        <property name="role" type="java.lang.Integer">
+            <column name="role" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" />
+        </property>
+        <property name="mobile" type="string">
+            <column name="mobile" length="20" />
+        </property>
+        <property name="grade" type="string">
+            <column name="grade" length="10">
+                <comment>&#168;&#168;&#162;&#227;??????&#161;&#176;?&#161;&#192;?</comment>
+            </column>
+        </property>
+        <property name="subjectid" type="java.lang.Integer">
+            <column name="subjectid">
+                <comment>&#168;&#168;&#162;&#227;??????&#161;&#176;?&#161;&#192;?</comment>
+            </column>
+        </property>
+        <property name="registerdate" type="string">
+            <column name="registerdate" length="10">
+                <comment>????&#161;&#177;?-?&#161;&#173;?????&#161;&#170;????????&#161;&#173;???&#168;C-&#168;&#168;????&#161;&#164;??&#161;&#167;????&#161;&#170;????</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

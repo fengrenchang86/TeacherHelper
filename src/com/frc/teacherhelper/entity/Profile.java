@@ -1,6 +1,5 @@
 package com.frc.teacherhelper.entity;
-
-// Generated 2016-2-21 18:40:00 by Hibernate Tools 3.4.0.CR1
+// Generated 2016-7-5 23:47:38 by Hibernate Tools 3.5.0.Final
 
 import java.util.Date;
 
@@ -28,8 +27,8 @@ public class Profile implements java.io.Serializable {
 		this.type = type;
 	}
 
-	public Profile(String username, String password, Date registerDate,
-			int status, String mailAddress, String nickname, int type) {
+	public Profile(String username, String password, Date registerDate, int status, String mailAddress, String nickname,
+			int type) {
 		this.username = username;
 		this.password = password;
 		this.registerDate = registerDate;

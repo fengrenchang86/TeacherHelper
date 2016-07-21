@@ -1,0 +1,123 @@
+<div>
+	<form data-dojo-type="dijit/form/Form">
+		<div class="halfDiv">
+			<div class="field">
+				<label for="grade">年级</label> <select name="type" id="grade"
+					data-dojo-type="dijit/form/Select" data-dojo-attach-point="_grade"
+					style="width: 200px;">
+					<option value="G1">高一</option>
+					<option value="G2">高二</option>
+					<option value="G3">高三</option>
+					<option value="C1">初一</option>
+					<option value="C2">初二</option>
+					<option value="C3">初三</option>
+				</select>
+			</div>
+			<div class="field">
+				<label for="subject">科目</label> <select name="type" id="subject"
+					data-dojo-type="dijit/form/Select"
+					data-dojo-attach-point="_subject" style="width: 200px;">
+					<option value="语文">语文</option>
+					<option value="数学">数学</option>
+					<option value="英语">英语</option>
+					<option value="物理">物理</option>
+					<option value="化学">化学</option>
+					<option value="政治">政治</option>
+					<option value="历史">历史</option>
+					<option value="生物">生物</option>
+				</select>
+			</div>
+			<div class="field" data-dojo-attach-point="btnBrowze"></div>
+			<div class="field" data-dojo-attach-point="btnImport"></div>
+		</div>
+
+		<div class="halfDiv">
+			<div class="field">
+				<label for="unit">单元</label> <input
+				data-dojo-type="dijit/form/TextBox"
+				placeholder=""
+				data-dojo-attach-point="_unit" id="unit" name="unit" />
+			</div>
+			<div class="field">
+				<label for="content">考点内容</label> <input
+				data-dojo-type="dijit/form/TextBox"
+				placeholder=""
+				data-dojo-attach-point="_content" id="content" name="content" />
+			</div>
+			<div class="field">
+				<label for="parentContent">上级考点</label> <input
+				data-dojo-type="dijit/form/TextBox"
+				placeholder=""
+				data-dojo-attach-point="_parentContent" id="parentContent" name="parentContent" />
+			</div>
+			
+			<div class="field" data-dojo-attach-point="btnInsert"></div>
+			<div class="field" data-dojo-attach-point="btnSubmit"></div>
+		</div>
+		<!-- 
+		<div class="field">
+			<label for="username">${i18n.username}</label> <input
+				data-dojo-type="dijit/form/ValidationTextBox"
+				placeholder="${i18n.placeholder.username}"
+				data-dojo-attach-point="_username" required="true"
+				regExp="[a-zA-Z]\w{5,20}" invalidMessage="${i18n.errorMsg.username}"
+				id="username" name="username" />
+		</div>
+
+		<div class="field">
+			<label for="password">${i18n.password}</label> <input type="password"
+				data-dojo-type="dijit/form/ValidationTextBox"
+				placeholder="${i18n.placeholder.password}" required="true"
+				id="password" name="password" />
+		</div>
+
+		<div class="field">
+			<label for="confirmpassword">${i18n.confirmpassword}</label> <input
+				type="password" data-dojo-type="dijit/form/ValidationTextBox"
+				placeholder="${i18n.placeholder.confirmpassword}"
+				data-dojo-attach-point="_password" required="true"
+				validator="return銆�this.getValue()銆�==銆�dijit.byId('password').getValue()"
+				invalidMessage="${i18n.errorMsg.confirmpassword}"
+				id="confirmpassword" name="confirmpassword" />
+		</div>
+
+		<div class="field">
+			<label for="nickname">${i18n.nickname}</label> <input
+				data-dojo-type="dijit/form/TextBox"
+				placeholder="${i18n.placeholder.nickname}"
+				data-dojo-attach-point="_nickname" id="nickname" name="nickname" />
+		</div>
+
+		<div class="field">
+			<label for="email">${i18n.email}</label> <input
+				data-dojo-type="dijit/form/ValidationTextBox"
+				placeholder="${i18n.placeholder.email}"
+				data-dojo-attach-point="_email"
+				regExp="(\w+@\w+\.\w+)(\.{0,1}\w*)(\.{0,1}\w*)"
+				invalidMessage="${i18n.errorMsg.email}" id="email" name="email" />
+		</div>
+
+		<div class="field">
+			<label for="type">${i18n.type}</label> <select name="type" id="type"
+				data-dojo-type="dijit/form/Select" data-dojo-attach-point="_type"
+				style="width: 200px;">
+				<option value="TC">${i18n.teacher}</option>
+				<option value="ST">${i18n.student}</option>
+			</select>
+		</div>
+
+		
+		 -->
+
+	</form>
+	<div data-dojo-type="dijit/Dialog" data-dojo-attach-point="import_div" id="import_div" title="输入考点对话框"
+		style="width:100%;height:500px;">
+	</div>
+	<div data-dojo-type="dijit/Dialog" data-dojo-attach-point="view_div" id="view_div" title="查询考点对话框"
+		style="width:100%;height:500px;">
+	</div>
+	<div data-dojo-type="dijit/Dialog" data-dojo-attach-point="gridinput_div" id="gridinput_div" title="输入考点"
+		style="width:100%;height:500px;">
+	</div>
+</div>
+

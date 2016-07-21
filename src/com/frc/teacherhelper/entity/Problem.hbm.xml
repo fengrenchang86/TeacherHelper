@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-7-5 23:47:38 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.frc.teacherhelper.entity.Problem" table="problem" catalog="teacherdb">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="subjectid" type="java.lang.Integer">
+            <column name="subjectid" />
+        </property>
+        <property name="grade" type="java.lang.Integer">
+            <column name="grade" />
+        </property>
+        <property name="type" type="java.lang.Integer">
+            <column name="type" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="65535" />
+        </property>
+        <property name="optionA" type="string">
+            <column name="optionA" length="65535" />
+        </property>
+        <property name="optionB" type="string">
+            <column name="optionB" length="65535" />
+        </property>
+        <property name="optionC" type="string">
+            <column name="optionC" length="65535" />
+        </property>
+        <property name="optionD" type="string">
+            <column name="optionD" length="65535" />
+        </property>
+        <property name="optionE" type="string">
+            <column name="optionE" length="65535" />
+        </property>
+        <property name="optionF" type="string">
+            <column name="optionF" length="65535" />
+        </property>
+        <property name="answer" type="string">
+            <column name="answer" length="65535" />
+        </property>
+        <property name="analysis" type="string">
+            <column name="analysis" length="65535" />
+        </property>
+        <property name="point" type="java.lang.Integer">
+            <column name="point" />
+        </property>
+        <property name="testitem" type="string">
+            <column name="testitem" length="500" />
+        </property>
+        <property name="creator" type="string">
+            <column name="creator" length="50" />
+        </property>
+        <property name="createtime" type="string">
+            <column name="createtime" length="30" />
+        </property>
+    </class>
+</hibernate-mapping>
