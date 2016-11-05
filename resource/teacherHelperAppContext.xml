@@ -11,13 +11,27 @@
           	http://www.springframework.org/schema/context
           	http://www.springframework.org/schema/context/spring-context.xsd"
 	default-lazy-init="false">
+	<!-- 
 	<bean id="dataSource_teacherdb"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/teacherdb??useUnicode=true&amp;characterEncoding=UTF-8" />
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/teacherdb?useUnicode=true&amp;characterEncoding=UTF-8" />
 		<property name="username" value="root" />
 		<property name="password" value="acmicpc" />
 	</bean>
+	 -->
+	 <bean id="dataSource_teacherdb" class="com.mchange.v2.c3p0.ComboPooledDataSource"  
+        destroy-method="close">  
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/teacherdb?useUnicode=true&amp;characterEncoding=UTF-8"></property>  
+        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>  
+        <property name="user" value="root"></property>  
+        <property name="password" value="acmicpc"></property>  
+        <property name="maxPoolSize" value="40"></property>  
+        <property name="minPoolSize" value="1"></property>  
+        <property name="initialPoolSize" value="1"></property>  
+        <property name="maxIdleTime" value="20"></property>  
+    </bean>  
 
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
@@ -32,17 +46,20 @@
 				<prop key="hibernate.show_sql">true</prop>
 			</props>
 		</property>
-
+ 
 		<property name="configLocation" value="classpath:hibernate.cfg.xml">
 		</property>
-
-		<!-- <property name="packagesToScan"> <list> <value>com.frc.teacherhelper.entity</value> 
-			</list> </property> -->
+ <!--  
+		<property name="packagesToScan">
+			<list>
+				<value>com.frc.teacherhelper.entity</value>
+			</list>
+		</property>
+		-->
 	</bean>
 
-	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
+	<!-- <bean id="hibernateTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate"> 
+		<property name="sessionFactory" ref="sessionFactory" /> </bean> -->
 
 	<!-- 配置事务管理器 指定其作用的sessionFactory把事务交给Spring去处理 -->
 	<bean id="transactionManager"
@@ -67,6 +84,7 @@
 
 	<tx:annotation-driven transaction-manager="transactionManager"
 		proxy-target-class="true" />
+	<aop:config proxy-target-class="false"> </aop:config>
 	<aop:config expose-proxy="true">
 		<!-- 只对业务逻辑层实施事务 -->
 		<aop:pointcut id="txPointcut"
@@ -74,6 +92,8 @@
 		<!-- Advisor定义，切入点和通知分别为txPointcut、txAdvice -->
 		<aop:advisor pointcut-ref="txPointcut" advice-ref="txAdvice" />
 	</aop:config>
+	
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
 
 	<context:component-scan base-package="com.frc.teacherhelper.entity" />
 	<context:component-scan base-package="com.frc.teacherhelper.controller" />

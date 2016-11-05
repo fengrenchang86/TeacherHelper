@@ -8,7 +8,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.web.context.support.XmlWebApplicationContext;
 
+import com.frc.teacherhelper.dao.ISubjectDao;
 import com.frc.teacherhelper.dao.ITestitemDao;
+import com.frc.teacherhelper.entity.Subject;
 import com.frc.teacherhelper.entity.Testitem;
 import com.frc.teacherhelper.util.DateUtil;
 
@@ -20,9 +22,21 @@ public class TestDB {
 		System.out.println(ac);
 	}
 	@Test
+	public void querySubject() {
+		ISubjectDao dao = (ISubjectDao) ac.getBean("SubjectDao");
+		Subject sub = dao.querySubject("语文");
+		System.out.println(sub.getSubjectid() + "," + sub.getSubjectname());
+	}
+	@Test
+	public void testLoad() {
+		ITestitemDao dao = (ITestitemDao) ac.getBean("TestitemDao");
+		Testitem item = dao.load(1);
+		System.out.println(item.getContent());
+	}
+	@Test
 	public void query() {
 		ITestitemDao dao = (ITestitemDao) ac.getBean("TestitemDao");
-		String cts[] = new String[]{"考点12", "123123"};
+		String cts[] = new String[]{"鑰冪偣12", "123123"};
 		List<Testitem> list = dao.queryByContent(cts);
 		for (Testitem ti : list) {
 			System.out.println(ti.getContent() + "," + ti.getId());
@@ -51,7 +65,7 @@ public class TestDB {
 		}
 		
 		Testitem item = new Testitem();
-		item.setContent("12A住3123");
+		item.setContent("12A浣�3123");
 		item.setLevel(1);
 		item.setParentId(0);
 		String dateTime = DateUtil.getDateTime("yyyy-MM-dd HH:mm:ss");

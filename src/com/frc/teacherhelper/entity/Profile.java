@@ -1,5 +1,5 @@
 package com.frc.teacherhelper.entity;
-// Generated 2016-7-5 23:47:38 by Hibernate Tools 3.5.0.Final
+// Generated 2016-8-4 23:17:06 by Hibernate Tools 3.5.0.Final
 
 import java.util.Date;
 

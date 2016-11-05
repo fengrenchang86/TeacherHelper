@@ -11,133 +11,33 @@ import org.springframework.orm.hibernate4.HibernateTemplate;
 
 
 public interface IGenericDao<T extends Serializable, PK extends Serializable> { 
-    // -------------------- »ù±¾¼ìË÷¡¢Ôö¼Ó¡¢ĞŞ¸Ä¡¢É¾³ı²Ù×÷ -------------------- 
-
-    // ¸ù¾İÖ÷¼ü»ñÈ¡ÊµÌå¡£Èç¹ûÃ»ÓĞÏàÓ¦µÄÊµÌå£¬·µ»Ø null¡£ 
-    public T get(PK id); 
-
-    // ¸ù¾İÖ÷¼ü»ñÈ¡ÊµÌå²¢¼ÓËø¡£Èç¹ûÃ»ÓĞÏàÓ¦µÄÊµÌå£¬·µ»Ø null¡£ 
-    public T getWithLock(PK id, LockMode lock); 
-
-    // ¸ù¾İÖ÷¼ü»ñÈ¡ÊµÌå¡£Èç¹ûÃ»ÓĞÏàÓ¦µÄÊµÌå£¬Å×³öÒì³£¡£ 
+   
+  
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡Êµï¿½å¡£ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½Êµï¿½å£¬ï¿½×³ï¿½ï¿½ì³£ï¿½ï¿½ 
     public T load(PK id); 
 
-    // ¸ù¾İÖ÷¼ü»ñÈ¡ÊµÌå²¢¼ÓËø¡£Èç¹ûÃ»ÓĞÏàÓ¦µÄÊµÌå£¬Å×³öÒì³£¡£ 
-    public T loadWithLock(PK id, LockMode lock); 
-
-    // »ñÈ¡È«²¿ÊµÌå¡£ 
-    public List<T> loadAll(); 
 
     // loadAllWithLock() ? 
 
-    // ¸üĞÂÊµÌå 
+    // ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ 
     public void update(T entity); 
 
-    // ¸üĞÂÊµÌå²¢¼ÓËø 
-    public void updateWithLock(T entity, LockMode lock); 
-
-    // ´æ´¢ÊµÌåµ½Êı¾İ¿â 
+    // ï¿½æ´¢Êµï¿½åµ½ï¿½ï¿½ï¿½İ¿ï¿½ 
     public void save(T entity); 
 
-    // saveWithLock() 
-
-    // Ôö¼Ó»ò¸üĞÂÊµÌå 
-    public void saveOrUpdate(T entity); 
-
-    // Ôö¼Ó»ò¸üĞÂ¼¯ºÏÖĞµÄÈ«²¿ÊµÌå 
-//    public void saveOrUpdateAll(Collection<T> entities); 
-
-    // É¾³ıÖ¸¶¨µÄÊµÌå 
+   
+    // É¾ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ 
     public void delete(T entity); 
 
-    // ¼ÓËø²¢É¾³ıÖ¸¶¨µÄÊµÌå 
-    public void deleteWithLock(T entity, LockMode lock); 
 
-    // ¸ù¾İÖ÷¼üÉ¾³ıÖ¸¶¨ÊµÌå 
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½Ö¸ï¿½ï¿½Êµï¿½ï¿½ 
     public void deleteByKey(PK id); 
-
-    // ¸ù¾İÖ÷¼ü¼ÓËø²¢É¾³ıÖ¸¶¨µÄÊµÌå 
-    public void deleteByKeyWithLock(PK id, LockMode lock); 
-
-    // É¾³ı¼¯ºÏÖĞµÄÈ«²¿ÊµÌå 
-    public void deleteAll(Collection<T> entities); 
 
     // -------------------- HSQL ---------------------------------------------- 
 
-    // Ê¹ÓÃHSQLÓï¾äÖ±½ÓÔö¼Ó¡¢¸üĞÂ¡¢É¾³ıÊµÌå 
-    public int bulkUpdate(String queryString); 
-
-    // Ê¹ÓÃ´ø²ÎÊıµÄHSQLÓï¾äÔö¼Ó¡¢¸üĞÂ¡¢É¾³ıÊµÌå 
-    public int bulkUpdate(String queryString, Object[] values); 
-
-    // Ê¹ÓÃHSQLÓï¾ä¼ìË÷Êı¾İ 
+    // Ê¹ï¿½ï¿½HSQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
     public List find(String queryString); 
 
-    // Ê¹ÓÃ´ø²ÎÊıµÄHSQLÓï¾ä¼ìË÷Êı¾İ 
-    public List find(String queryString, Object[] values); 
-
-    // Ê¹ÓÃ´øÃüÃûµÄ²ÎÊıµÄHSQLÓï¾ä¼ìË÷Êı¾İ 
-    public List findByNamedParam(String queryString, String[] paramNames, 
-            Object[] values); 
-
-    // Ê¹ÓÃÃüÃûµÄHSQLÓï¾ä¼ìË÷Êı¾İ 
-    public List findByNamedQuery(String queryName); 
-
-    // Ê¹ÓÃ´ø²ÎÊıµÄÃüÃûHSQLÓï¾ä¼ìË÷Êı¾İ 
-    public List findByNamedQuery(String queryName, Object[] values); 
-
-    // Ê¹ÓÃ´øÃüÃû²ÎÊıµÄÃüÃûHSQLÓï¾ä¼ìË÷Êı¾İ 
-    public List findByNamedQueryAndNamedParam(String queryName, 
-            String[] paramNames, Object[] values); 
-
-    // Ê¹ÓÃHSQLÓï¾ä¼ìË÷Êı¾İ£¬·µ»Ø Iterator 
-    public Iterator iterate(String queryString); 
-
-    // Ê¹ÓÃ´ø²ÎÊıHSQLÓï¾ä¼ìË÷Êı¾İ£¬·µ»Ø Iterator 
-    public Iterator iterate(String queryString, Object[] values); 
-
-    // ¹Ø±Õ¼ìË÷·µ»ØµÄ Iterator 
-    public void closeIterator(Iterator it); 
-
-    // -------------------------------- Criteria ------------------------------ 
-
-    // ´´½¨Óë»á»°ÎŞ¹ØµÄ¼ìË÷±ê×¼¶ÔÏó 
-    public DetachedCriteria createDetachedCriteria(); 
-
-    // ´´½¨Óë»á»°°ó¶¨µÄ¼ìË÷±ê×¼¶ÔÏó 
-    public Criteria createCriteria(); 
-
-    // Ê¹ÓÃÖ¸¶¨µÄ¼ìË÷±ê×¼¼ìË÷Êı¾İ 
-    public List findByCriteria(DetachedCriteria criteria); 
-
-    // Ê¹ÓÃÖ¸¶¨µÄ¼ìË÷±ê×¼¼ìË÷Êı¾İ£¬·µ»Ø²¿·Ö¼ÇÂ¼ 
-    public List findByCriteria(DetachedCriteria criteria, int firstResult, 
-            int maxResults); 
-
-    // Ê¹ÓÃÖ¸¶¨µÄÊµÌå¼°ÊôĞÔ¼ìË÷£¨Âú×ã³ıÖ÷¼üÍâÊôĞÔ£½ÊµÌåÖµ£©Êı¾İ 
-    public List<T> findEqualByEntity(T entity, String[] propertyNames); 
-
-    // Ê¹ÓÃÖ¸¶¨µÄ¼ìË÷±ê×¼¼ìË÷Êı¾İ£¬·µ»ØÖ¸¶¨Í³¼ÆÖµ 
-    public Object getStatValue(DetachedCriteria criteria, String propertyName, 
-            String StatName); 
-
-    // -------------------------------- Others -------------------------------- 
-
-    // ¼ÓËøÖ¸¶¨µÄÊµÌå 
-    public void lock(T entity, LockMode lockMode); 
-
-    // Ç¿ÖÆ³õÊ¼»¯Ö¸¶¨µÄÊµÌå 
-    public void initialize(Object proxy); 
-
-    // Ç¿ÖÆÁ¢¼´¸üĞÂ»º³åÊı¾İµ½Êı¾İ¿â£¨·ñÔò½öÔÚÊÂÎñÌá½»Ê±²Å¸üĞÂ£© 
-    public void flush(); 
-
-    public List<T> findByExample(T instance);
-    
-    public List findByNativeSQL(String sql);
-    
-    public void executeByNativeSQL(String sql);
-    
-    HibernateTemplate getHibernateTemplate();
+ 
 
 } 

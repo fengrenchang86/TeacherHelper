@@ -1,9 +1,10 @@
 eclipse.preferences.version=1
 encoding//src/com/frc/teacherhelper/controller/TestItemController.java=UTF-8
 encoding//src/com/frc/teacherhelper/dao/impl/GenericDaoImpl.java=UTF-8
+encoding//test/com/frc/test/TestDB.java=UTF-8
 encoding//webapp/app/teacherHelper/registration/input.html=UTF-8
 encoding//webapp/app/teacherHelper/testitem/gridinput.html=UTF-8
 encoding//webapp/app/teacherHelper/testitem/import.html=UTF-8
 encoding//webapp/app/teacherHelper/testitem/input.html=UTF-8
 encoding//webapp/app/teacherHelper/testitem/view.html=UTF-8
-encoding/<project>=UTF-8
+encoding//webapp/testitem.html=UTF-8

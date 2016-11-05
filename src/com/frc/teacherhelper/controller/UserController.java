@@ -17,9 +17,9 @@ import com.frc.teacherhelper.module.UserInfo;
 import com.frc.teacherhelper.module.req.LogonRequest;
 import com.frc.teacherhelper.module.res.LogonResponse;
 import com.frc.teacherhelper.service.UserService;
-
+/*
 @Controller
-@RequestMapping("/User")
+@RequestMapping("/User")*/
 public class UserController {
 	
 	@Resource(name="UserService")
